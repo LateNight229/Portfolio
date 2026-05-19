@@ -80,7 +80,7 @@
     }
 
     .hero-left h1{
-      font-size:56px;
+      font-size:40px;
       line-height:1.1;
       margin-bottom:20px;
     }
@@ -92,13 +92,17 @@
     }
     
     .avatar{
-  width:260px;
-  height:260px;
-  object-fit:cover;
-  border-radius:50%;
-  border:4px solid #38bdf8;
-  box-shadow:0 20px 60px rgba(56,189,248,0.25);
-}
+      width:260px;
+      height:260px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      box-shadow:0 20px 60px rgba(56,189,248,0.25);
+    }
+
+    .avatar:hover{
+      box-shadow:0 10px 30px rgba(56, 191, 248, 0.719);
+    }
 
     .hero-left span{
       color:#38bdf8;
@@ -110,7 +114,6 @@
       max-width:600px;
     }
 
-    
 
     .btn-group{
       display:flex;
@@ -130,8 +133,13 @@
       color:#0f172a;
     }
 
+    .btn:hover{
+      transform:translateY(-4px);
+      transition:0.3s;
+    }
+
     .btn-primary:hover{
-      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(56, 191, 248, 0.719);
     }
 
     .btn-outline{
@@ -207,7 +215,7 @@
 
 <header>
   <div class="container navbar">
-    <div class="logo">PTIEN</div>
+    <div class="logo">Portfolio</div>
 
     <div class="nav-links">
       <a href="#about">About</a>
@@ -232,8 +240,8 @@
     </p>
 
     <div class="btn-group">
-      <a href="#" class="btn btn-primary">Download CV</a>
-      <a href="https://github.com/" class="btn btn-outline">GitHub</a>
+      <a href="./assets/PhamQuocTien_CV.pdf" target="_blank" download class="btn btn-primary">Download CV</a>
+      <!-- <a href="https://github.com/" class="btn btn-outline">GitHub</a> -->
     </div>
   </div>
 
@@ -315,6 +323,19 @@
       <li>Integrated RESTful APIs with TCP server</li>
       <li>Optimized mobile performance and frame rate</li>
       <li>Implemented UI systems and animations</li>
+    </ul>
+
+     <p>
+      All features:
+    </p>
+
+     <ul style="padding-left:20px; color:#cbd5e1; margin-top:10px;">
+      <li>Build Farming function: All life circle off crop in farm (Plants, Feed, Take care issue, Harvest)</li>
+      <li>Build Online function (Chat system , Friend, Mailbox, Fishing, Mining)</li>
+      <li>Quest systems, Leaderboard</li>
+      <li>Inventory, Store buy sell item, Skin, Pet,</li>
+      <li>Events system</li>
+      <li>Mini Game: Quiz, Gomuko, LuckySpin</li>
     </ul>
 
   </div>
