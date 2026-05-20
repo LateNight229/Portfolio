@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -57,8 +56,6 @@
       margin:auto;
     }
 
-    /* ================= HEADER ================= */
-
     header{
       position:sticky;
       top:0;
@@ -77,13 +74,19 @@
       align-items:center;
 
       padding:24px 0;
+      gap:24px;
     }
 
     .logo{
       font-size:24px;
       font-weight:900;
-
       color:var(--accent);
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:24px;
     }
 
     .nav-links{
@@ -102,7 +105,35 @@
       color:var(--accent);
     }
 
-    /* ================= HERO ================= */
+    .lang-switch{
+      display:flex;
+      gap:8px;
+    }
+
+    .lang-btn{
+      padding:8px 14px;
+
+      border:none;
+      border-radius:12px;
+
+      background:rgba(255,255,255,0.06);
+      color:var(--muted);
+
+      cursor:pointer;
+      font-weight:800;
+
+      transition:0.25s;
+    }
+
+    .lang-btn:hover{
+      background:rgba(78,161,255,0.15);
+      color:white;
+    }
+
+    .lang-btn.active{
+      background:var(--accent);
+      color:#07111f;
+    }
 
     .hero{
       padding:90px 0 80px;
@@ -222,11 +253,8 @@
 
     .btn-outline{
       border:1px solid rgba(255,255,255,0.12);
-
       color:var(--muted);
     }
-
-    /* ================= SECTION ================= */
 
     .section{
       padding:70px 0;
@@ -250,10 +278,7 @@
       margin-bottom:40px;
     }
 
-    /* ================= MAIN PROJECT ================= */
-
     .main-project{
-
       padding:38px;
 
       border-radius:30px;
@@ -294,7 +319,6 @@
 
     .project-role{
       color:var(--accent);
-
       font-weight:700;
     }
 
@@ -369,14 +393,18 @@
       margin:12px 0;
     }
 
-    /* ================= VIDEO ================= */
+    .video-section{
+      margin-top:34px;
+    }
 
-    .video-section h4{
+    .video-title{
       font-size:24px;
 
       color:var(--accent);
 
       margin-bottom:20px;
+
+      font-weight:800;
     }
 
     .video-wrapper{
@@ -393,8 +421,6 @@
 
       display:block;
     }
-
-    /* ================= TECH STACK ================= */
 
     .tech-stack{
       display:flex;
@@ -419,10 +445,16 @@
       font-weight:600;
     }
 
-    /* ================= EXPERIENCE ================= */
+    .side-projects-grid{
+      display:grid;
 
-    .experience-card{
-      padding:30px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+      gap:24px;
+    }
+
+    .side-card{
+      overflow:hidden;
 
       border-radius:26px;
 
@@ -434,33 +466,76 @@
           rgba(16,27,48,0.98),
           rgba(13,23,40,0.96)
         );
+
+      transition:0.25s;
     }
 
-    .experience-card h3{
-      font-size:28px;
+    .side-card:hover{
+      transform:translateY(-6px);
 
-      margin-bottom:10px;
+      border-color:rgba(78,161,255,0.25);
     }
 
-    .experience-date{
-      color:var(--accent);
+    .side-thumb{
+      width:100%;
+      height:220px;
+
+      object-fit:cover;
+
+      display:block;
+
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .side-content{
+      padding:24px;
+    }
+
+    .side-content h3{
+      font-size:24px;
+
+      margin-bottom:12px;
+    }
+
+    .side-content p{
+      color:var(--muted);
 
       margin-bottom:20px;
 
+      font-size:15px;
+    }
+
+    .side-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+
+      margin-bottom:22px;
+    }
+
+    .side-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:12px 18px;
+
+      border-radius:14px;
+
+      background:rgba(78,161,255,0.12);
+
+      border:1px solid rgba(78,161,255,0.18);
+
+      color:#dceeff;
+
       font-weight:700;
+
+      transition:0.25s;
     }
 
-    .experience-card ul{
-      padding-left:18px;
+    .side-btn:hover{
+      background:rgba(78,161,255,0.18);
     }
-
-    .experience-card li{
-      color:var(--muted);
-
-      margin:12px 0;
-    }
-
-    /* ================= CONTACT ================= */
 
     .contact-card{
       padding:30px;
@@ -489,8 +564,6 @@
       font-weight:700;
     }
 
-    /* ================= FOOTER ================= */
-
     footer{
       padding:40px 0;
 
@@ -501,8 +574,6 @@
       color:var(--soft);
     }
 
-    /* ================= RESPONSIVE ================= */
-
     @media(max-width:900px){
 
       .hero{
@@ -511,6 +582,10 @@
 
       .hero h1{
         font-size:42px;
+      }
+
+      .nav-right{
+        gap:14px;
       }
 
       .nav-links{
@@ -535,39 +610,56 @@
       }
 
     }
-
   </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
-
   <div class="container navbar">
 
     <div class="logo">
       PTIEN
     </div>
 
-    <div class="nav-links">
+    <div class="nav-right">
 
-      <a href="#about">Giới thiệu</a>
+      <div class="nav-links">
 
-      <a href="#project">Dự án</a>
+        <a href="#about" data-vi="Giới thiệu" data-en="About">
+          Giới thiệu
+        </a>
 
-      <a href="#experience">Kinh nghiệm</a>
+        <a href="#project" data-vi="Dự án" data-en="Project">
+          Dự án
+        </a>
 
-      <a href="#contact">Liên hệ</a>
+        <a href="#side-projects" data-vi="Dự án phụ" data-en="Side Projects">
+          Dự án phụ
+        </a>
+
+        <a href="#contact" data-vi="Liên hệ" data-en="Contact">
+          Liên hệ
+        </a>
+
+      </div>
+
+      <div class="lang-switch">
+
+        <button class="lang-btn active" type="button" onclick="setLanguage('vi')">
+          VI
+        </button>
+
+        <button class="lang-btn" type="button" onclick="setLanguage('en')">
+          EN
+        </button>
+
+      </div>
 
     </div>
 
   </div>
-
 </header>
-
-<!-- ================= HERO ================= -->
 
 <section class="hero container">
 
@@ -577,32 +669,36 @@
       Unity Client & Gameplay Developer
     </div>
 
-    <h1>
+    <h1
+      data-vi="Xin chào, tôi là <span>Pham Quoc Tien</span>"
+      data-en="Hi, I'm <span>Pham Quoc Tien</span>">
       Xin chào, tôi là <span>Pham Quoc Tien</span>
     </h1>
 
-    <p>
+    <p
+      data-vi="Lập trình viên Unity với hơn 2 năm kinh nghiệm phát triển game online production-scale bằng Unity và C#. Có kinh nghiệm xây dựng gameplay systems, backend integration, realtime networking, runtime assets và multiplayer features cho mobile game."
+      data-en="Unity Developer with 2+ years of experience building production-scale online multiplayer games using Unity and C#. Experienced in gameplay systems, backend integration, realtime networking, runtime asset pipelines and multiplayer mobile game features.">
       Lập trình viên Unity với hơn 2 năm kinh nghiệm phát triển game online production-scale bằng Unity và C#. Có kinh nghiệm xây dựng gameplay systems, backend integration, realtime networking, runtime assets và multiplayer features cho mobile game.
     </p>
 
     <div class="btn-group">
 
       <a
-        href="./assets/PhamQuocTien_CV.pdf"
+        href="./assets/cv/PhamQuocTien_CV.pdf"
         class="btn btn-primary"
         target="_blank"
-        download>
-
+        download
+        data-vi="Tải CV"
+        data-en="Download CV">
         Tải CV
-
       </a>
 
       <a
         href="#contact"
-        class="btn btn-outline">
-
+        class="btn btn-outline"
+        data-vi="Liên hệ"
+        data-en="Contact">
         Liên hệ
-
       </a>
 
     </div>
@@ -614,7 +710,7 @@
     <div class="avatar-wrap">
 
       <img
-        src="./avatar.png"
+        src="./Assets/images/avatar.png"
         alt="avatar"
         class="avatar">
 
@@ -624,41 +720,41 @@
 
 </section>
 
-<!-- ================= ABOUT ================= -->
-
 <section class="section container" id="about">
 
-  <h2 class="section-title">
+  <h2
+    class="section-title"
+    data-vi="Giới thiệu"
+    data-en="About">
     Giới thiệu
   </h2>
 
-  <p class="section-subtitle">
-
-    Unity Developer với kinh nghiệm làm việc trên dự án game online multiplayer thực tế.
-
-    Tập trung vào gameplay systems, REST API integration, realtime TCP socket networking, AssetBundle runtime pipeline và scalable Unity client architecture.
-
+  <p
+    class="section-subtitle"
+    data-vi="Unity Developer với kinh nghiệm làm việc trên dự án game online multiplayer thực tế. Tập trung vào gameplay systems, REST API integration, realtime TCP socket networking, AssetBundle runtime pipeline và scalable Unity client architecture."
+    data-en="Unity Developer experienced in real production multiplayer online games. Focused on gameplay systems, REST API integration, realtime TCP socket networking, AssetBundle runtime pipeline and scalable Unity client architecture.">
+    Unity Developer với kinh nghiệm làm việc trên dự án game online multiplayer thực tế. Tập trung vào gameplay systems, REST API integration, realtime TCP socket networking, AssetBundle runtime pipeline và scalable Unity client architecture.
   </p>
 
 </section>
 
-<!-- ================= MAIN PROJECT ================= -->
-
 <section class="section container" id="project">
 
-  <h2 class="section-title">
-    Main Project
+  <h2
+    class="section-title"
+    data-vi="Dự án chính"
+    data-en="Main Project">
+    Dự án chính
   </h2>
 
-  <p class="section-subtitle">
-
+  <p
+    class="section-subtitle"
+    data-vi="Portfolio tập trung vào một dự án production-scale online game thay vì nhiều demo nhỏ."
+    data-en="Portfolio focused on a production-scale online game instead of many small demos.">
     Portfolio tập trung vào một dự án production-scale online game thay vì nhiều demo nhỏ.
-
   </p>
 
   <div class="main-project">
-
-    <!-- HEADER -->
 
     <div class="project-header">
 
@@ -687,84 +783,112 @@
 
     </div>
 
-    <!-- DESCRIPTION -->
-
     <div class="project-description">
 
-      <p>
-
-        Production-scale online multiplayer farm game featuring gameplay systems, realtime synchronization, economy systems, LiveOps events, social systems and multiplayer features.
-
+      <p
+        data-vi="Production-scale online multiplayer farm game với gameplay systems, realtime synchronization, economy systems, LiveOps events, social systems và multiplayer features."
+        data-en="Production-scale online multiplayer farm game featuring gameplay systems, realtime synchronization, economy systems, LiveOps events, social systems and multiplayer features.">
+        Production-scale online multiplayer farm game với gameplay systems, realtime synchronization, economy systems, LiveOps events, social systems và multiplayer features.
       </p>
 
     </div>
 
-    <!-- CONTENT -->
-
     <div class="project-grid">
-
-      <!-- TECH -->
 
       <div class="project-card">
 
-        <h4>
-          Technical Contributions
+        <h4
+          data-vi="Đóng góp kỹ thuật"
+          data-en="Technical Contributions">
+          Đóng góp kỹ thuật
         </h4>
 
         <ul>
 
-          <li>
-            Integrated REST APIs cho player data và economy systems
+          <li
+            data-vi="Tích hợp REST APIs cho player data và economy systems"
+            data-en="Integrated REST APIs for player data and economy systems">
+            Tích hợp REST APIs cho player data và economy systems
           </li>
 
-          <li>
-            Worked with custom TCP socket synchronization
+          <li
+            data-vi="Làm việc với custom TCP socket synchronization"
+            data-en="Worked with custom TCP socket synchronization">
+            Làm việc với custom TCP socket synchronization
           </li>
 
-          <li>
-            Supported runtime AssetBundle loading pipeline
+          <li
+            data-vi="Hỗ trợ runtime AssetBundle loading pipeline"
+            data-en="Supported runtime AssetBundle loading pipeline">
+            Hỗ trợ runtime AssetBundle loading pipeline
           </li>
 
-          <li>
-            Implemented modular gameplay và minigame architecture
+          <li
+            data-vi="Xây dựng modular gameplay và minigame architecture"
+            data-en="Implemented modular gameplay and minigame architecture">
+            Xây dựng modular gameplay và minigame architecture
           </li>
 
-          <li>
-            Built reconnect, heartbeat và opcode dispatch systems
+          <li
+            data-vi="Xây dựng reconnect, heartbeat và opcode dispatch systems"
+            data-en="Built reconnect, heartbeat and opcode dispatch systems">
+            Xây dựng reconnect, heartbeat và opcode dispatch systems
           </li>
 
         </ul>
 
       </div>
 
-      <!-- GAMEPLAY -->
-
       <div class="project-card">
 
-        <h4>
+        <h4
+          data-vi="Production Systems"
+          data-en="Production Systems">
           Production Systems
         </h4>
 
         <ul>
 
-          <li>
+          <li
+            data-vi="Farming gameplay và tile interaction systems"
+            data-en="Farming gameplay and tile interaction systems">
             Farming gameplay và tile interaction systems
           </li>
 
-          <li>
+          <li
+            data-vi="Inventory, shop, market và economy systems"
+            data-en="Inventory, shop, market and economy systems">
             Inventory, shop, market và economy systems
           </li>
 
-          <li>
+          <li
+            data-vi="Character customization, equipment và pets"
+            data-en="Character customization, equipment and pets">
             Character customization, equipment và pets
           </li>
 
-          <li>
+          <li
+            data-vi="Quest, mailbox, rewards và LiveOps events"
+            data-en="Quest, mailbox, rewards and LiveOps events">
             Quest, mailbox, rewards và LiveOps events
           </li>
 
-          <li>
-            Chat, leaderboard và multiplayer features
+          <li
+            data-vi="Chat, friend, ranking, leaderboard và multiplayer features"
+            data-en="Chat, friend, ranking, leaderboard and multiplayer features">
+            Chat, friend, ranking, leaderboard và multiplayer features
+          </li>
+
+          <li
+            data-vi="Fishing, mining, chopping, crop planting và harvesting systems"
+            data-en="Fishing, mining, chopping, crop planting and harvesting systems">
+            Fishing, mining, chopping, crop planting và harvesting systems
+          </li>
+
+          <li
+            data-vi="Buying, selling, upgrading và progression systems"
+            data-en="Buying, selling, upgrading and progression systems">
+            Buying, selling, upgrading và progression systems
           </li>
 
         </ul>
@@ -773,24 +897,31 @@
 
     </div>
 
-    <!-- VIDEO -->
+    <div class="video-section">
 
-<div class="video-wrapper">
+      <h4
+        class="video-title"
+        data-vi="🎬 Video dự án"
+        data-en="🎬 Project Showcase">
+        🎬 Video dự án
+      </h4>
 
-  <iframe
-    width="100%"
-    height="620"
-    src="https://www.youtube.com/embed/WnerdBwCpm0?rel=0"
-    title="Gameplay Showcase"
-    frameborder="0"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+      <div class="video-wrapper">
 
-</div>
+        <iframe
+          width="100%"
+          height="620"
+          src="https://www.youtube.com/embed/WnerdBwCpm0?rel=0"
+          title="Gameplay Showcase"
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
 
-    <!-- STACK -->
+      </div>
+
+    </div>
 
     <div class="tech-stack">
 
@@ -810,53 +941,116 @@
 
 </section>
 
-<!-- ================= EXPERIENCE ================= -->
+<section class="section container" id="side-projects">
 
-<section class="section container" id="experience">
-
-  <h2 class="section-title">
-    Kinh nghiệm
+  <h2
+    class="section-title"
+    data-vi="Dự án phụ"
+    data-en="Side Projects">
+    Dự án phụ
   </h2>
 
-  <div class="experience-card">
+  <p
+    class="section-subtitle"
+    data-vi="Gameplay prototypes, technical experiments và modular systems được xây dựng trong thời gian tự học và thực hành thêm."
+    data-en="Gameplay prototypes, technical experiments and modular systems built during spare time.">
+    Gameplay prototypes, technical experiments và modular systems được xây dựng trong thời gian tự học và thực hành thêm.
+  </p>
 
-    <h3>
-      Nichietsu — Unity Client Developer
-    </h3>
+  <div class="side-projects-grid">
 
-    <p class="experience-date">
-      01/2024 - Hiện tại
-    </p>
+    <div class="side-card">
 
-    <ul>
+      <img
+        src="./assets/images/blast-thumb.png"
+        class="side-thumb"
+        alt="Blast Prototype">
 
-      <li>
-        Phát triển gameplay systems và UI systems cho game online multiplayer
-      </li>
+      <div class="side-content">
 
-      <li>
-        Tích hợp REST APIs và realtime TCP socket systems
-      </li>
+        <h3>
+          Blast Clone Prototype
+        </h3>
 
-      <li>
-        Làm việc với inventory, economy, event và multiplayer systems
-      </li>
+        <p
+          data-vi="Hyper-casual puzzle prototype với auto shooting systems, layered cube boards, merge mechanics và data-driven level architecture."
+          data-en="Hyper-casual puzzle prototype featuring auto shooting systems, layered cube boards, merge mechanics and data-driven level architecture.">
+          Hyper-casual puzzle prototype với auto shooting systems, layered cube boards, merge mechanics và data-driven level architecture.
+        </p>
 
-      <li>
-        Bảo trì và mở rộng production-scale Unity client
-      </li>
+        <div class="side-tags">
 
-    </ul>
+          <span class="tag">Unity</span>
+          <span class="tag">DOTween</span>
+          <span class="tag">Mobile</span>
+          <span class="tag">Data Driven</span>
+
+        </div>
+
+        <a
+          href="https://www.youtube.com/watch?v=EWxNRr4g21A&t=1s"
+          target="_blank"
+          class="side-btn"
+          data-vi="XEM VIDEO →"
+          data-en="WATCH VIDEO →">
+          XEM VIDEO →
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="side-card">
+
+      <img
+        src="./assets/images/caro-thumb.png"
+        class="side-thumb"
+        alt="Caro Multiplayer">
+
+      <div class="side-content">
+
+        <h3>
+          Multiplayer Caro
+        </h3>
+
+        <p
+          data-vi="Realtime Gomoku minigame với matchmaking, socket synchronization, runtime board generation và multiplayer turn systems."
+          data-en="Realtime Gomoku minigame with matchmaking, socket synchronization, runtime board generation and multiplayer turn systems.">
+          Realtime Gomoku minigame với matchmaking, socket synchronization, runtime board generation và multiplayer turn systems.
+        </p>
+
+        <div class="side-tags">
+
+          <span class="tag">TCP Socket</span>
+          <span class="tag">Realtime</span>
+          <span class="tag">Multiplayer</span>
+          <span class="tag">Minigame</span>
+
+        </div>
+
+        <a
+          href="https://www.youtube.com/watch?v=EWxNRr4g21A&t=1s"
+          target="_blank"
+          class="side-btn"
+          data-vi="XEM VIDEO →"
+          data-en="WATCH VIDEO →">
+          XEM VIDEO →
+        </a>
+
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
-<!-- ================= CONTACT ================= -->
-
 <section class="section container" id="contact">
 
-  <h2 class="section-title">
+  <h2
+    class="section-title"
+    data-vi="Liên hệ"
+    data-en="Contact">
     Liên hệ
   </h2>
 
@@ -870,15 +1064,28 @@
     </p>
 
     <p>
-      SĐT:
+      LinkedIn:
+      <a
+        href="https://www.linkedin.com/in/tienpham-dev/"
+        target="_blank"
+        class="highlight">
+        https://www.linkedin.com/in/tienpham-dev/
+      </a>
+    </p>
+
+    <p>
+      <span data-vi="SĐT:" data-en="Phone:">SĐT:</span>
       <span class="highlight">
         +84 984449140
       </span>
     </p>
 
     <p>
-      Địa điểm:
-      <span class="highlight">
+      <span data-vi="Địa điểm:" data-en="Location:">Địa điểm:</span>
+      <span
+        class="highlight"
+        data-vi="Hồ Chí Minh, Việt Nam"
+        data-en="Ho Chi Minh City, Vietnam">
         Hồ Chí Minh, Việt Nam
       </span>
     </p>
@@ -887,13 +1094,33 @@
 
 </section>
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
-
   © 2026 Pham Quoc Tien — Unity Client & Gameplay Developer
-
 </footer>
+
+<script>
+  const langButtons = document.querySelectorAll(".lang-btn");
+
+  function setLanguage(lang){
+    document.documentElement.lang = lang;
+
+    const elements = document.querySelectorAll("[data-vi][data-en]");
+
+    elements.forEach(function(el){
+      el.innerHTML = el.getAttribute("data-" + lang);
+    });
+
+    langButtons.forEach(function(btn){
+      btn.classList.remove("active");
+    });
+
+    document
+      .querySelector(".lang-btn[onclick=\"setLanguage('" + lang + "')\"]")
+      .classList.add("active");
+  }
+
+  setLanguage("vi");
+</script>
 
 </body>
 </html>
