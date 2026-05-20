@@ -1,25 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pham Quoc Tien | Unity Developer</title>
+
+  <title>Pham Quoc Tien | Unity Client Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
     }
 
+    :root{
+      --bg:#081120;
+      --card:#101b30;
+      --card2:#0d1728;
+      --text:#ffffff;
+      --muted:#b8c5d6;
+      --soft:#7d8ca3;
+      --line:rgba(255,255,255,0.08);
+
+      --accent:#4ea1ff;
+      --accent2:#22c55e;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:'Inter',sans-serif;
-      background:#0f172a;
-      color:white;
-      line-height:1.6;
+
+      background:
+        radial-gradient(circle at top left, rgba(78,161,255,0.15), transparent 25%),
+        radial-gradient(circle at top right, rgba(34,197,94,0.06), transparent 20%),
+        var(--bg);
+
+      color:var(--text);
+      line-height:1.7;
     }
 
     a{
@@ -29,91 +53,147 @@
 
     .container{
       width:90%;
-      max-width:1200px;
+      max-width:1180px;
       margin:auto;
     }
 
+    /* ================= HEADER ================= */
+
     header{
-      padding:40px 0;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+      position:sticky;
+      top:0;
+      z-index:100;
+
+      backdrop-filter:blur(14px);
+
+      background:rgba(8,17,32,0.85);
+
+      border-bottom:1px solid var(--line);
     }
 
     .navbar{
       display:flex;
       justify-content:space-between;
       align-items:center;
+
+      padding:24px 0;
     }
 
     .logo{
       font-size:24px;
-      font-weight:700;
-      color:#38bdf8;
+      font-weight:900;
+
+      color:var(--accent);
     }
 
     .nav-links{
       display:flex;
       gap:24px;
+
+      color:var(--muted);
+      font-size:14px;
     }
 
     .nav-links a{
-      opacity:0.8;
-      transition:0.3s;
+      transition:0.25s;
     }
 
     .nav-links a:hover{
-      opacity:1;
-      color:#38bdf8;
+      color:var(--accent);
     }
 
+    /* ================= HERO ================= */
+
     .hero{
-      padding:100px 0;
+      padding:90px 0 80px;
+
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
+
       gap:60px;
       flex-wrap:wrap;
     }
 
     .hero-left{
-      flex:1;
+      flex:1.2;
       min-width:300px;
     }
 
-    .hero-left h1{
-      font-size:40px;
-      line-height:1.1;
-      margin-bottom:20px;
+    .eyebrow{
+      display:inline-block;
+
+      padding:8px 14px;
+
+      border-radius:999px;
+
+      border:1px solid rgba(78,161,255,0.25);
+
+      background:rgba(78,161,255,0.08);
+
+      color:var(--accent);
+
+      font-size:13px;
+      font-weight:700;
+
+      margin-bottom:22px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      line-height:1.05;
+
+      letter-spacing:-2px;
+
+      margin-bottom:24px;
+    }
+
+    .hero h1 span{
+      color:var(--accent);
+    }
+
+    .hero p{
+      max-width:760px;
+
+      color:var(--muted);
+
+      font-size:17px;
+
+      margin-bottom:34px;
     }
 
     .hero-right{
-        flex:1;
-        display:flex;
-        justify-content:center;
+      flex:0.8;
+
+      display:flex;
+      justify-content:center;
     }
-    
+
+    .avatar-wrap{
+      padding:14px;
+
+      border-radius:34px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(78,161,255,0.25),
+          rgba(34,197,94,0.08)
+        );
+
+      box-shadow:0 24px 70px rgba(78,161,255,0.18);
+    }
+
     .avatar{
       width:260px;
       height:260px;
+
       object-fit:cover;
-      border-radius:50%;
-      border:4px solid #38bdf8;
-      box-shadow:0 20px 60px rgba(56,189,248,0.25);
-    }
 
-    .avatar:hover{
-      box-shadow:0 10px 30px rgba(56, 191, 248, 0.719);
-    }
+      border-radius:26px;
 
-    .hero-left span{
-      color:#38bdf8;
+      display:block;
     }
-
-    .hero-left p{
-      color:#cbd5e1;
-      margin-bottom:30px;
-      max-width:600px;
-    }
-
 
     .btn-group{
       display:flex;
@@ -122,88 +202,336 @@
     }
 
     .btn{
-      padding:14px 28px;
-      border-radius:12px;
-      font-weight:600;
-      transition:0.3s;
-    }
+      padding:14px 24px;
 
-    .btn-primary{
-      background:#38bdf8;
-      color:#0f172a;
+      border-radius:14px;
+
+      font-weight:800;
+
+      transition:0.25s;
     }
 
     .btn:hover{
-      transform:translateY(-4px);
-      transition:0.3s;
+      transform:translateY(-2px);
     }
 
-    .btn-primary:hover{
-      box-shadow:0 10px 30px rgba(56, 191, 248, 0.719);
+    .btn-primary{
+      background:var(--accent);
+      color:#07111f;
     }
 
     .btn-outline{
-      border:1px solid rgba(255,255,255,0.2);
+      border:1px solid rgba(255,255,255,0.12);
+
+      color:var(--muted);
     }
 
+    /* ================= SECTION ================= */
+
     .section{
-      padding:80px 0;
+      padding:70px 0;
     }
 
     .section-title{
       font-size:40px;
+
+      margin-bottom:14px;
+
+      letter-spacing:-1px;
+
+      color:var(--accent);
+    }
+
+    .section-subtitle{
+      color:var(--soft);
+
+      max-width:720px;
+
       margin-bottom:40px;
-      color:#38bdf8;
     }
 
-    .skills{
+    /* ================= MAIN PROJECT ================= */
+
+    .main-project{
+
+      padding:38px;
+
+      border-radius:30px;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(78,161,255,0.16),
+          rgba(34,197,94,0.05)
+        ),
+        linear-gradient(
+          180deg,
+          rgba(16,27,48,0.98),
+          rgba(13,23,40,0.96)
+        );
+    }
+
+    .project-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+
+      gap:24px;
+      flex-wrap:wrap;
+
+      margin-bottom:26px;
+    }
+
+    .project-title h3{
+      font-size:36px;
+
+      line-height:1.2;
+
+      margin-bottom:10px;
+    }
+
+    .project-role{
+      color:var(--accent);
+
+      font-weight:700;
+    }
+
+    .project-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      padding:8px 12px;
+
+      border-radius:999px;
+
+      background:rgba(78,161,255,0.10);
+
+      border:1px solid rgba(78,161,255,0.18);
+
+      color:#d6ecff;
+
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .project-description{
+      margin-bottom:34px;
+    }
+
+    .project-description p{
+      color:var(--muted);
+
+      font-size:17px;
+
+      max-width:900px;
+    }
+
+    .project-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
 
-    .card{
-      background:#111827;
-      padding:24px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.05);
-      transition:0.3s;
-    }
+      grid-template-columns:repeat(2,1fr);
 
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:#38bdf8;
-    }
+      gap:22px;
 
-    .card h3{
-      margin-bottom:12px;
-      color:#38bdf8;
+      margin-bottom:34px;
     }
 
     .project-card{
-      margin-bottom:30px;
+      padding:24px;
+
+      border-radius:24px;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:rgba(255,255,255,0.03);
     }
 
-    .project-card p{
-      color:#cbd5e1;
-      margin-top:10px;
+    .project-card h4{
+      color:var(--accent);
+
+      margin-bottom:18px;
+
+      font-size:20px;
     }
+
+    .project-card ul{
+      padding-left:18px;
+    }
+
+    .project-card li{
+      color:var(--muted);
+
+      margin:12px 0;
+    }
+
+    /* ================= VIDEO ================= */
+
+    .video-section h4{
+      font-size:24px;
+
+      color:var(--accent);
+
+      margin-bottom:20px;
+    }
+
+    .video-wrapper{
+      overflow:hidden;
+
+      border-radius:24px;
+
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .video-wrapper iframe{
+      width:100%;
+      height:620px;
+
+      display:block;
+    }
+
+    /* ================= TECH STACK ================= */
+
+    .tech-stack{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+
+      margin-top:34px;
+    }
+
+    .stack-item{
+      padding:10px 14px;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      color:var(--muted);
+
+      font-size:13px;
+      font-weight:600;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .experience-card{
+      padding:30px;
+
+      border-radius:26px;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(16,27,48,0.98),
+          rgba(13,23,40,0.96)
+        );
+    }
+
+    .experience-card h3{
+      font-size:28px;
+
+      margin-bottom:10px;
+    }
+
+    .experience-date{
+      color:var(--accent);
+
+      margin-bottom:20px;
+
+      font-weight:700;
+    }
+
+    .experience-card ul{
+      padding-left:18px;
+    }
+
+    .experience-card li{
+      color:var(--muted);
+
+      margin:12px 0;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-card{
+      padding:30px;
+
+      border-radius:24px;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(16,27,48,0.98),
+          rgba(13,23,40,0.96)
+        );
+    }
+
+    .contact-card p{
+      margin:14px 0;
+
+      color:var(--muted);
+    }
+
+    .highlight{
+      color:var(--accent2);
+
+      font-weight:700;
+    }
+
+    /* ================= FOOTER ================= */
 
     footer{
       padding:40px 0;
-      border-top:1px solid rgba(255,255,255,0.1);
+
+      border-top:1px solid var(--line);
+
       text-align:center;
-      color:#94a3b8;
+
+      color:var(--soft);
     }
 
-    @media(max-width:768px){
+    /* ================= RESPONSIVE ================= */
 
-      .hero-left h1{
+    @media(max-width:900px){
+
+      .hero{
+        padding-top:60px;
+      }
+
+      .hero h1{
         font-size:42px;
       }
 
       .nav-links{
         display:none;
+      }
+
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+
+      .video-wrapper iframe{
+        height:260px;
+      }
+
+      .project-title h3{
+        font-size:28px;
+      }
+
+      .avatar{
+        width:220px;
+        height:220px;
       }
 
     }
@@ -213,151 +541,358 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+
   <div class="container navbar">
-    <div class="logo">Portfolio</div>
+
+    <div class="logo">
+      PTIEN
+    </div>
 
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+
+      <a href="#about">Giới thiệu</a>
+
+      <a href="#project">Dự án</a>
+
+      <a href="#experience">Kinh nghiệm</a>
+
+      <a href="#contact">Liên hệ</a>
+
     </div>
+
   </div>
+
 </header>
+
+<!-- ================= HERO ================= -->
 
 <section class="hero container">
 
   <div class="hero-left">
+
+    <div class="eyebrow">
+      Unity Client & Gameplay Developer
+    </div>
+
     <h1>
-      Hi, I'm <span>Pham Quoc Tien</span><br>
-      Unity Game Developer
+      Xin chào, tôi là <span>Pham Quoc Tien</span>
     </h1>
 
     <p>
-      Unity Game Developer with 2+ years of experience building mobile multiplayer games,
-      gameplay systems, UI architecture, and client-server integration using Unity and C#.
+      Lập trình viên Unity với hơn 2 năm kinh nghiệm phát triển game online production-scale bằng Unity và C#. Có kinh nghiệm xây dựng gameplay systems, backend integration, realtime networking, runtime assets và multiplayer features cho mobile game.
     </p>
 
     <div class="btn-group">
-      <a href="./assets/PhamQuocTien_CV.pdf" target="_blank" download class="btn btn-primary">Download CV</a>
-      <!-- <a href="https://github.com/" class="btn btn-outline">GitHub</a> -->
+
+      <a
+        href="./assets/PhamQuocTien_CV.pdf"
+        class="btn btn-primary"
+        target="_blank"
+        download>
+
+        Tải CV
+
+      </a>
+
+      <a
+        href="#contact"
+        class="btn btn-outline">
+
+        Liên hệ
+
+      </a>
+
     </div>
+
   </div>
 
-   <div class="hero-right">
-    <img src="./avatar.png" alt="Pham Quoc Tien Avatar" class="avatar">
+  <div class="hero-right">
+
+    <div class="avatar-wrap">
+
+      <img
+        src="./avatar.png"
+        alt="avatar"
+        class="avatar">
+
+    </div>
+
   </div>
 
 </section>
+
+<!-- ================= ABOUT ================= -->
 
 <section class="section container" id="about">
 
-  <h2 class="section-title">About Me</h2>
+  <h2 class="section-title">
+    Giới thiệu
+  </h2>
 
-  <div class="card">
-    <p>
-      Experienced Unity Developer specializing in gameplay programming,
-      multiplayer systems, REST API integration, socket networking,
-      UI systems, optimization, and mobile game development.
+  <p class="section-subtitle">
 
-      Worked on real-world production projects with designers,
-      artists, and backend developers to build scalable game systems.
-    </p>
+    Unity Developer với kinh nghiệm làm việc trên dự án game online multiplayer thực tế.
+
+    Tập trung vào gameplay systems, REST API integration, realtime TCP socket networking, AssetBundle runtime pipeline và scalable Unity client architecture.
+
+  </p>
+
+</section>
+
+<!-- ================= MAIN PROJECT ================= -->
+
+<section class="section container" id="project">
+
+  <h2 class="section-title">
+    Main Project
+  </h2>
+
+  <p class="section-subtitle">
+
+    Portfolio tập trung vào một dự án production-scale online game thay vì nhiều demo nhỏ.
+
+  </p>
+
+  <div class="main-project">
+
+    <!-- HEADER -->
+
+    <div class="project-header">
+
+      <div class="project-title">
+
+        <h3>
+          Production Online Farm Game
+        </h3>
+
+        <p class="project-role">
+          Unity Client Developer
+        </p>
+
+      </div>
+
+      <div class="project-tags">
+
+        <span class="tag">Unity</span>
+        <span class="tag">Multiplayer</span>
+        <span class="tag">TCP Socket</span>
+        <span class="tag">REST API</span>
+        <span class="tag">AssetBundle</span>
+        <span class="tag">LiveOps</span>
+
+      </div>
+
+    </div>
+
+    <!-- DESCRIPTION -->
+
+    <div class="project-description">
+
+      <p>
+
+        Production-scale online multiplayer farm game featuring gameplay systems, realtime synchronization, economy systems, LiveOps events, social systems and multiplayer features.
+
+      </p>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="project-grid">
+
+      <!-- TECH -->
+
+      <div class="project-card">
+
+        <h4>
+          Technical Contributions
+        </h4>
+
+        <ul>
+
+          <li>
+            Integrated REST APIs cho player data và economy systems
+          </li>
+
+          <li>
+            Worked with custom TCP socket synchronization
+          </li>
+
+          <li>
+            Supported runtime AssetBundle loading pipeline
+          </li>
+
+          <li>
+            Implemented modular gameplay và minigame architecture
+          </li>
+
+          <li>
+            Built reconnect, heartbeat và opcode dispatch systems
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- GAMEPLAY -->
+
+      <div class="project-card">
+
+        <h4>
+          Production Systems
+        </h4>
+
+        <ul>
+
+          <li>
+            Farming gameplay và tile interaction systems
+          </li>
+
+          <li>
+            Inventory, shop, market và economy systems
+          </li>
+
+          <li>
+            Character customization, equipment và pets
+          </li>
+
+          <li>
+            Quest, mailbox, rewards và LiveOps events
+          </li>
+
+          <li>
+            Chat, leaderboard và multiplayer features
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO -->
+
+<div class="video-wrapper">
+
+  <iframe
+    width="100%"
+    height="620"
+    src="https://www.youtube.com/embed/WnerdBwCpm0?rel=0"
+    title="Gameplay Showcase"
+    frameborder="0"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+    <!-- STACK -->
+
+    <div class="tech-stack">
+
+      <span class="stack-item">Unity</span>
+      <span class="stack-item">C#</span>
+      <span class="stack-item">TCP Socket</span>
+      <span class="stack-item">REST API</span>
+      <span class="stack-item">JSON</span>
+      <span class="stack-item">AssetBundle</span>
+      <span class="stack-item">OOP</span>
+      <span class="stack-item">Mobile Optimization</span>
+      <span class="stack-item">LiveOps</span>
+
+    </div>
+
   </div>
 
 </section>
 
-<section class="section container" id="skills">
+<!-- ================= EXPERIENCE ================= -->
 
-  <h2 class="section-title">Technical Skills</h2>
+<section class="section container" id="experience">
 
-  <div class="skills">
+  <h2 class="section-title">
+    Kinh nghiệm
+  </h2>
 
-    <div class="card">
-      <h3>Game Development</h3>
-      <p>Unity Engine, Gameplay Systems, UI, Animator, Object Pooling</p>
-    </div>
+  <div class="experience-card">
 
-    <div class="card">
-      <h3>Programming</h3>
-      <p>C#, C++, OOP, Design Patterns, Architecture</p>
-    </div>
+    <h3>
+      Nichietsu — Unity Client Developer
+    </h3>
 
-    <div class="card">
-      <h3>Networking</h3>
-      <p>REST API, Socket, TCP, JSON, Firebase, Photon</p>
-    </div>
-
-    <div class="card">
-      <h3>Platforms</h3>
-      <p>Android, iOS, PC, WebGL</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section container" id="projects">
-
-  <h2 class="section-title">Featured Project</h2>
-
-  <div class="card project-card">
-
-    <h3>Verdant Farm – Multiplayer Farming Simulation</h3>
-
-    <p>
-      Social farming simulation game combining multiplayer gameplay
-      with e-commerce features.
+    <p class="experience-date">
+      01/2024 - Hiện tại
     </p>
 
-    <br>
+    <ul>
 
-    <p>
-      Responsibilities:
-    </p>
+      <li>
+        Phát triển gameplay systems và UI systems cho game online multiplayer
+      </li>
 
-    <ul style="padding-left:20px; color:#cbd5e1; margin-top:10px;">
-      <li>Implemented gameplay systems using Unity C#</li>
-      <li>Built multiplayer features using socket communication</li>
-      <li>Integrated RESTful APIs with TCP server</li>
-      <li>Optimized mobile performance and frame rate</li>
-      <li>Implemented UI systems and animations</li>
+      <li>
+        Tích hợp REST APIs và realtime TCP socket systems
+      </li>
+
+      <li>
+        Làm việc với inventory, economy, event và multiplayer systems
+      </li>
+
+      <li>
+        Bảo trì và mở rộng production-scale Unity client
+      </li>
+
     </ul>
 
-     <p>
-      All features:
-    </p>
-
-     <ul style="padding-left:20px; color:#cbd5e1; margin-top:10px;">
-      <li>Build Farming function: All life circle off crop in farm (Plants, Feed, Take care issue, Harvest)</li>
-      <li>Build Online function (Chat system , Friend, Mailbox, Fishing, Mining)</li>
-      <li>Quest systems, Leaderboard</li>
-      <li>Inventory, Store buy sell item, Skin, Pet,</li>
-      <li>Events system</li>
-      <li>Mini Game: Quiz, Gomuko, LuckySpin</li>
-    </ul>
-
   </div>
 
 </section>
+
+<!-- ================= CONTACT ================= -->
 
 <section class="section container" id="contact">
 
-  <h2 class="section-title">Contact</h2>
+  <h2 class="section-title">
+    Liên hệ
+  </h2>
 
-  <div class="card">
+  <div class="contact-card">
 
-    <p>Email: quoctien220901@gmail.com</p>
-    <p>Phone: +84 984449140</p>
-    <p>Location: Ho Chi Minh City, Vietnam</p>
+    <p>
+      Email:
+      <span class="highlight">
+        quoctien220901@gmail.com
+      </span>
+    </p>
+
+    <p>
+      SĐT:
+      <span class="highlight">
+        +84 984449140
+      </span>
+    </p>
+
+    <p>
+      Địa điểm:
+      <span class="highlight">
+        Hồ Chí Minh, Việt Nam
+      </span>
+    </p>
 
   </div>
 
 </section>
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
-  <p>© 2026 Pham Quoc Tien — Unity Developer Portfolio</p>
+
+  © 2026 Pham Quoc Tien — Unity Client & Gameplay Developer
+
 </footer>
 
 </body>
